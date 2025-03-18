@@ -22,7 +22,14 @@ permissions:
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
   get_current_step:
-    name: Check current step number
+    - name: Update to step 3
+  uses: skills/action-update-step@v2
+  with:
+    token: ${{ secrets.GITHUB_TOKEN }}
+    from_step: 2
+    to_step: 3
+    branch_name: my-pages
+name: Check current step number
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
